@@ -27,26 +27,6 @@ extension CameraPreViewController {
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         previewLayer.connection?.videoRotationAngle = 90
     }
-    
-//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-//        super.viewWillTransition(to: size, with: coordinator)
-//        screenRect = UIScreen.main.bounds
-//        previewLayer.frame = CGRect(x: 0, y: 0, width: screenRect.size.width, height: screenRect.size.height)
-//        
-//        switch UIDevice.current.orientation {
-//        case .portrait:
-//            self.previewLayer.connection?.videoRotationAngle = PreviewLayerRotationAngle.portrait
-//            
-//        case .landscapeLeft:
-//            self.previewLayer.connection?.videoRotationAngle = PreviewLayerRotationAngle.landscapeLeft
-//            
-//        case .landscapeRight:
-//            self.previewLayer.connection?.videoRotationAngle = PreviewLayerRotationAngle.landscapeRight
-//            
-//        default:
-//            self.previewLayer.connection?.videoRotationAngle = PreviewLayerRotationAngle.portrait
-//        }
-//    }
 }
 
 //MARK: - videoRotationAngle Values

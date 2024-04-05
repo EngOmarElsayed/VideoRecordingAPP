@@ -8,18 +8,21 @@
 import Foundation
 import AVFoundation
 
-class AVCaptureManger {
+class AVCaptureManger: NSObject {
     static let shared = AVCaptureManger()
     var captureSession = AVCaptureSession()
+    
+    private let videoOutput = AVCaptureMovieFileOutput()
     private let sessionThread = DispatchQueue(label: "SessionQue")
     
-    init() {
+    override init() {
+        super.init()
         if isAuthorized {
             configure()
         }
     }
     
-    var isAuthorized: Bool {
+    private var isAuthorized: Bool {
         get {
             let status = AVCaptureDevice.authorizationStatus(for: .video)
             
@@ -35,6 +38,10 @@ class AVCaptureManger {
         }
     }
     
+}
+
+//MARK: -  AVCapture methods
+extension AVCaptureManger {
     func configure() {
         sessionThread.async { [weak self] in
             guard let self else { return }
@@ -46,7 +53,6 @@ class AVCaptureManger {
             guard captureSession.canAddInput(videoDeviceInput) else { return }
             captureSession.addInput(videoDeviceInput)
             
-            let videoOutput = AVCaptureMovieFileOutput()
             guard captureSession.canAddOutput(videoOutput) else { return }
             captureSession.sessionPreset = .medium
             captureSession.addOutput(videoOutput)
@@ -56,4 +62,39 @@ class AVCaptureManger {
         }
     }
     
+    func startRecording() {
+        let outputFileName = NSUUID().uuidString
+        let outputFilePath = (NSTemporaryDirectory() as NSString).appendingPathComponent((outputFileName as NSString).appendingPathExtension("mov")!)
+        videoOutput.startRecording(to: URL(fileURLWithPath: outputFilePath), recordingDelegate: self)
+    }
+    
+    func stopRecording() {
+        videoOutput.stopRecording()
+    }
+}
+
+//MARK: -  Confirming to AVCaptureFileOutputRecordingDelegate
+extension AVCaptureManger: AVCaptureFileOutputRecordingDelegate {
+    func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection]) {
+        print("Started Recording")
+    }
+    
+    func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
+        print("Video URL: \(outputFileURL)")
+        cleanFilePath(outputFileURL)
+    }
+}
+
+//MARK: -  Private Methods
+extension AVCaptureManger {
+    private func cleanFilePath(_ fileUrl: URL) {
+        let path = fileUrl.path
+        if FileManager.default.fileExists(atPath: path) {
+            do {
+                try FileManager.default.removeItem(atPath: path)
+            } catch {
+                print("Could not remove file at url: \(fileUrl)")
+            }
+        }
+    }
 }

@@ -9,4 +9,25 @@ import Foundation
 
 class CameraViewModel: ObservableObject {
     @Published var isRecoredButtonPressed: Bool = false
+    private let captureManger = AVCaptureManger.shared
+}
+
+extension CameraViewModel {
+    func recordButtonAction() {
+        if isRecoredButtonPressed {
+            stopVideoRecording()
+        } else {
+            startVideoRecording()
+        }
+    }
+    
+    private func startVideoRecording() {
+        captureManger.startRecording()
+        isRecoredButtonPressed = true
+    }
+    
+   private func stopVideoRecording() {
+        captureManger.stopRecording()
+        isRecoredButtonPressed = false
+    }
 }

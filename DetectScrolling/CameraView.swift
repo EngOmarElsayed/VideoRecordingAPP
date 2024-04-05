@@ -17,6 +17,7 @@ struct ContentView: View {
         
         return (screenRect.width - tenPrecentFromWidth, screenRect.height - twentyPrecentFromHeight)
     }
+    
     var body: some View {
         ZStack {
             Color.black
@@ -25,8 +26,12 @@ struct ContentView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .frame(width: frameDimensions.width, height: frameDimensions.height)
                 
-                RecordButtonView()
-                    .padding(.vertical)
+                Button {
+                    vm.recordButtonAction()
+                } label: {
+                    RecordButtonView(isPressed: $vm.isRecoredButtonPressed)
+                        .padding(.vertical)
+                }
             }
         }
         .ignoresSafeArea()
@@ -34,15 +39,25 @@ struct ContentView: View {
 }
 
 struct RecordButtonView: View {
+    @Binding var isPressed: Bool
+    
     var body: some View {
         Circle()
             .stroke(lineWidth: 3)
             .frame(width: 70)
             .foregroundStyle(.white)
             .overlay(alignment: .center) {
-                Circle()
-                    .frame(width: 60)
-                    .foregroundStyle(.red)
+                if isPressed {
+                    RoundedRectangle(cornerRadius: 10)
+                        .frame(width: 30, height: 30)
+                        .foregroundStyle(.red)
+                        .animation(.linear, value: isPressed)
+                } else {
+                    Circle()
+                        .frame(width: 55)
+                        .foregroundStyle(.red)
+                        .animation(.linear, value: isPressed)
+                }
             }
     }
 }
