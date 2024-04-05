@@ -1,5 +1,5 @@
 # Video Rec
-![GitHub License]((https://img.shields.io/github/license/EngOmarElsayed/VideoRecordingAPP))
+![GitHub License](https://img.shields.io/github/license/EngOmarElsayed/VideoRecordingAPP)
 
 Our objective is to replicate the functionality of a camera app, enabling developers to explore and understand the intricacies of video recording with sound and a polished camera preview view. 
 
