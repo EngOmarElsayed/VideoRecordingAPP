@@ -300,6 +300,7 @@
 				INFOPLIST_FILE = DetectScrolling/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "Privacy - Camera Usage Description";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses camera to caputure video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Saves Captured videos to library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -333,6 +334,7 @@
 				INFOPLIST_FILE = DetectScrolling/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "Privacy - Camera Usage Description";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses camera to caputure video";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Saves Captured videos to library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

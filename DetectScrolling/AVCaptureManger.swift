@@ -76,10 +76,14 @@ extension AVCaptureManger {
             guard let self else { return }
             captureSession.beginConfiguration()
             
+            guard let audioDevice = AVCaptureDevice.default(for: .audio) else { return }
+            guard let audioDeviceInput = try? AVCaptureDeviceInput(device: audioDevice) else { return }
             guard let videoDevice = AVCaptureDevice.default(for: .video) else { return }
             guard let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice) else { return }
             
+            guard captureSession.canAddInput(audioDeviceInput) else { return }
             guard captureSession.canAddInput(videoDeviceInput) else { return }
+            captureSession.addInput(audioDeviceInput)
             captureSession.addInput(videoDeviceInput)
             
             guard captureSession.canAddOutput(videoOutput) else { return }
