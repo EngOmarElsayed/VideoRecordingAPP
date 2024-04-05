@@ -11,7 +11,6 @@
 		264801B82BB4223B0011D988 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264801B72BB4223B0011D988 /* CameraView.swift */; };
 		264801BA2BB4223C0011D988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264801B92BB4223C0011D988 /* Assets.xcassets */; };
 		264801BD2BB4223C0011D988 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264801BC2BB4223C0011D988 /* Preview Assets.xcassets */; };
-		264801C52BB4922B0011D988 /* IsScrolling in Frameworks */ = {isa = PBXBuildFile; productRef = 264801C42BB4922B0011D988 /* IsScrolling */; };
 		264B5BD12BBC25E0009B9E61 /* AVCaptureManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264B5BD02BBC25E0009B9E61 /* AVCaptureManger.swift */; };
 		26697EA92BBDD0A200693EAB /* CamerPreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26697EA82BBDD0A200693EAB /* CamerPreViewController.swift */; };
 		26B08E3B2BBDD90A007611CB /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B08E3A2BBDD90A007611CB /* CameraViewModel.swift */; };
@@ -34,7 +33,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				264801C52BB4922B0011D988 /* IsScrolling in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +95,6 @@
 			);
 			name = DetectScrolling;
 			packageProductDependencies = (
-				264801C42BB4922B0011D988 /* IsScrolling */,
 			);
 			productName = DetectScrolling;
 			productReference = 264801B22BB4223B0011D988 /* DetectScrolling.app */;
@@ -128,7 +125,6 @@
 			);
 			mainGroup = 264801A92BB4223B0011D988;
 			packageReferences = (
-				264801C32BB4922B0011D988 /* XCRemoteSwiftPackageReference "IsScrolling" */,
 			);
 			productRefGroup = 264801B32BB4223B0011D988 /* Products */;
 			projectDirPath = "";
@@ -376,25 +372,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		264801C32BB4922B0011D988 /* XCRemoteSwiftPackageReference "IsScrolling" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/fatbobman/IsScrolling.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		264801C42BB4922B0011D988 /* IsScrolling */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 264801C32BB4922B0011D988 /* XCRemoteSwiftPackageReference "IsScrolling" */;
-			productName = IsScrolling;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 264801AA2BB4223B0011D988 /* Project object */;
 }
