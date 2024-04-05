@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		264801B22BB4223B0011D988 /* DetectScrolling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetectScrolling.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		264801B22BB4223B0011D988 /* VideoRec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoRec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		264801B52BB4223B0011D988 /* DetectScrollingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectScrollingApp.swift; sourceTree = "<group>"; };
 		264801B72BB4223B0011D988 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		264801B92BB4223C0011D988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		264801A92BB4223B0011D988 = {
 			isa = PBXGroup;
 			children = (
-				264801B42BB4223B0011D988 /* DetectScrolling */,
+				264801B42BB4223B0011D988 /* VideoRec */,
 				264801B32BB4223B0011D988 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,12 +50,12 @@
 		264801B32BB4223B0011D988 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				264801B22BB4223B0011D988 /* DetectScrolling.app */,
+				264801B22BB4223B0011D988 /* VideoRec.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		264801B42BB4223B0011D988 /* DetectScrolling */ = {
+		264801B42BB4223B0011D988 /* VideoRec */ = {
 			isa = PBXGroup;
 			children = (
 				264B5BD22BBC2CBB009B9E61 /* Info.plist */,
@@ -67,7 +67,7 @@
 				264801B92BB4223C0011D988 /* Assets.xcassets */,
 				264801BB2BB4223C0011D988 /* Preview Content */,
 			);
-			path = DetectScrolling;
+			path = VideoRec;
 			sourceTree = "<group>";
 		};
 		264801BB2BB4223C0011D988 /* Preview Content */ = {
@@ -81,9 +81,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		264801B12BB4223B0011D988 /* DetectScrolling */ = {
+		264801B12BB4223B0011D988 /* VideoRec */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 264801C02BB4223C0011D988 /* Build configuration list for PBXNativeTarget "DetectScrolling" */;
+			buildConfigurationList = 264801C02BB4223C0011D988 /* Build configuration list for PBXNativeTarget "VideoRec" */;
 			buildPhases = (
 				264801AE2BB4223B0011D988 /* Sources */,
 				264801AF2BB4223B0011D988 /* Frameworks */,
@@ -93,11 +93,11 @@
 			);
 			dependencies = (
 			);
-			name = DetectScrolling;
+			name = VideoRec;
 			packageProductDependencies = (
 			);
 			productName = DetectScrolling;
-			productReference = 264801B22BB4223B0011D988 /* DetectScrolling.app */;
+			productReference = 264801B22BB4223B0011D988 /* VideoRec.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -115,7 +115,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 264801AD2BB4223B0011D988 /* Build configuration list for PBXProject "DetectScrolling" */;
+			buildConfigurationList = 264801AD2BB4223B0011D988 /* Build configuration list for PBXProject "VideoRec" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -130,7 +130,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				264801B12BB4223B0011D988 /* DetectScrolling */,
+				264801B12BB4223B0011D988 /* VideoRec */,
 			);
 		};
 /* End PBXProject section */
@@ -289,11 +289,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DetectScrolling/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"VideoRec/Preview Content\"";
 				DEVELOPMENT_TEAM = 9PYC9KWKRS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DetectScrolling/Info.plist;
+				INFOPLIST_FILE = VideoRec/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VideoRec;
 				INFOPLIST_KEY_LSApplicationCategoryType = "Privacy - Camera Usage Description";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses camera to caputure video";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
@@ -308,7 +309,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.deveagency.DetectScrolling;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deveagency.VideoRec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -323,11 +324,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DetectScrolling/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"VideoRec/Preview Content\"";
 				DEVELOPMENT_TEAM = 9PYC9KWKRS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DetectScrolling/Info.plist;
+				INFOPLIST_FILE = VideoRec/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VideoRec;
 				INFOPLIST_KEY_LSApplicationCategoryType = "Privacy - Camera Usage Description";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app uses camera to caputure video";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
@@ -342,7 +344,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.deveagency.DetectScrolling;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deveagency.VideoRec;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -353,7 +355,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		264801AD2BB4223B0011D988 /* Build configuration list for PBXProject "DetectScrolling" */ = {
+		264801AD2BB4223B0011D988 /* Build configuration list for PBXProject "VideoRec" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				264801BE2BB4223C0011D988 /* Debug */,
@@ -362,7 +364,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		264801C02BB4223C0011D988 /* Build configuration list for PBXNativeTarget "DetectScrolling" */ = {
+		264801C02BB4223C0011D988 /* Build configuration list for PBXNativeTarget "VideoRec" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				264801C12BB4223C0011D988 /* Debug */,
