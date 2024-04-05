@@ -13,6 +13,10 @@ class CameraViewModel: ObservableObject {
 }
 
 extension CameraViewModel {
+    func requestAccess() async {
+        await captureManger.requestAccess()
+    }
+    
     func recordButtonAction() {
         if isRecoredButtonPressed {
             stopVideoRecording()

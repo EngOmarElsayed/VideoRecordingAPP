@@ -35,6 +35,9 @@ struct ContentView: View {
             }
         }
         .ignoresSafeArea()
+        .task {
+            await vm.requestAccess()
+        }
     }
 }
 
