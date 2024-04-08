@@ -22,8 +22,8 @@ import Foundation
 
 class CameraViewModel: ObservableObject {
     @Published var isRecoredButtonPressed: Bool = false
-    
-    private var maxZoomValue: CGFloat { captureManger.maxZoomScale }
+    @Published var zoomState = 1.0
+    private var maxZoomValue: CGFloat = 5.0
     private let captureManger = AVCaptureManger.shared
 }
 
@@ -43,10 +43,13 @@ extension CameraViewModel {
     func zoomFor(_ value: CGFloat) {
         if value < 1 {
             captureManger.zoomTo(1.0)
+            zoomState = 1.0
         } else if value > maxZoomValue {
             captureManger.zoomTo(maxZoomValue)
+            zoomState = maxZoomValue
         } else {
             captureManger.zoomTo(value)
+            zoomState = value
         }
     }
 }

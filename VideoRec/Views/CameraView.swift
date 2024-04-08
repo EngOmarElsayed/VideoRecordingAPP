@@ -22,15 +22,15 @@ import SwiftUI
 import AVFoundation
 
 struct ContentView: View {
-    @StateObject var vm = CameraViewModel()
-    @State var zoomState = 1.0
-    @State var lastZoomState = 1.0
+    @StateObject private var vm = CameraViewModel()
+    @State private var zoomState = 1.0
+    @State private var lastZoomState = 1.0
+    @State private var showZoomValue = false
+    private let screenRect = UIScreen.main.bounds
     
     var frameDimensions: (width: CGFloat, height: CGFloat) {
-        let screenRect = UIScreen.main.bounds
         let tenPrecentFromWidth = (10.0/100.0) * screenRect.width
         let twentyPrecentFromHeight = (10.0/100.0) * screenRect.height
-        
         return (screenRect.width - tenPrecentFromWidth, screenRect.height - twentyPrecentFromHeight)
     }
     
@@ -41,9 +41,11 @@ struct ContentView: View {
                 zoomState *= delta
                 vm.zoomFor(zoomState)
                 lastZoomState = state
+                showZoomValue = true
             }
             .onEnded { _ in
                 lastZoomState = 1.0
+                showZoomValue = false
             }
     }
     
@@ -55,8 +57,13 @@ struct ContentView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .frame(width: frameDimensions.width, height: frameDimensions.height)
                 
-                RecordButtonView(isPressed: $vm.isRecoredButtonPressed) {
-                    vm.recordButtonAction()
+                VStack(spacing: 10) {
+                    if showZoomValue {
+                        ZoomEffectValueLabelView(zoomEffectValue: $vm.zoomState)
+                    }
+                    RecordButtonView(isPressed: $vm.isRecoredButtonPressed) {
+                        vm.recordButtonAction()
+                    }
                 }
             }
             .gesture(magnificationGesture)

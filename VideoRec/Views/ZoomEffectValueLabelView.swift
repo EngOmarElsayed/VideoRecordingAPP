@@ -20,40 +20,20 @@
 
 import SwiftUI
 
-struct RecordButtonView: View {
-    @Binding var isPressed: Bool
-    let action: () -> Void
+struct ZoomEffectValueLabelView: View {
+    @Binding var zoomEffectValue: Double
     
     var body: some View {
-        Button {
-            action()
-        } label: {
-            RecordButtonLabel(isPressed: $isPressed)
-                .padding(.vertical)
-        }
+        Capsule()
+            .frame(width: 60, height: 35)
+            .foregroundStyle(.ultraThinMaterial)
+            .overlay {
+                Text("x \(zoomEffectValue, specifier: "%.1f")")
+                    .fontDesign(.rounded)
+            }
     }
 }
 
-struct RecordButtonLabel: View {
-    @Binding var isPressed: Bool
-    
-    var body: some View {
-        Circle()
-            .stroke(lineWidth: 3)
-            .frame(width: 70)
-            .foregroundStyle(.white)
-            .overlay(alignment: .center) {
-                if isPressed {
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(width: 30, height: 30)
-                        .foregroundStyle(.red)
-                        .animation(.linear, value: isPressed)
-                } else {
-                    Circle()
-                        .frame(width: 55)
-                        .foregroundStyle(.red)
-                        .animation(.linear, value: isPressed)
-                }
-            }
-    }
+#Preview {
+    ZoomEffectValueLabelView(zoomEffectValue: .constant(1.5))
 }
