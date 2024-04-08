@@ -26,8 +26,8 @@ class AVCaptureManger: NSObject {
     static let shared = AVCaptureManger()
     var captureSession = AVCaptureSession()
     
-    private let videoOutput = AVCaptureMovieFileOutput()
     private let sessionThread = DispatchQueue(label: "SessionQue")
+    private let videoOutput = AVCaptureMovieFileOutput()
     private let videoDevice = AVCaptureDevice.default(for: .video)
     private var isAuthorizedToAccessLibrary: Bool = false
     
@@ -57,6 +57,13 @@ extension AVCaptureManger {
         let outputFileName = NSUUID().uuidString
         let outputFilePath = (NSTemporaryDirectory() as NSString).appendingPathComponent((outputFileName as NSString).appendingPathExtension("mov")!)
         videoOutput.startRecording(to: URL(fileURLWithPath: outputFilePath), recordingDelegate: self)
+    }
+    
+    func zoomTo(_ value: CGFloat) {
+        guard let videoDevice else { return }
+        try? videoDevice.lockForConfiguration()
+        defer { videoDevice.unlockForConfiguration() }
+        videoDevice.ramp(toVideoZoomFactor: value, withRate: 0.3)
     }
     
     func stopRecording() {
