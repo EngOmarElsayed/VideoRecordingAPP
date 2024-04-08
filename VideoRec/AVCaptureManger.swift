@@ -28,6 +28,7 @@ class AVCaptureManger: NSObject {
     
     private let videoOutput = AVCaptureMovieFileOutput()
     private let sessionThread = DispatchQueue(label: "SessionQue")
+    private let videoDevice = AVCaptureDevice.default(for: .video)
     private var isAuthorizedToAccessLibrary: Bool = false
     
     override init() {
@@ -91,14 +92,17 @@ extension AVCaptureManger {
             
             guard let audioDevice = AVCaptureDevice.default(for: .audio) else { return }
             guard let audioDeviceInput = try? AVCaptureDeviceInput(device: audioDevice) else { return }
-            guard let videoDevice = AVCaptureDevice.default(for: .video) else { return }
+            
+            guard let videoDevice = videoDevice else { return }
             guard let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice) else { return }
             
+            // Add the input device for the session
             guard captureSession.canAddInput(audioDeviceInput) else { return }
             guard captureSession.canAddInput(videoDeviceInput) else { return }
             captureSession.addInput(audioDeviceInput)
             captureSession.addInput(videoDeviceInput)
             
+            // Add the output format for the session
             guard captureSession.canAddOutput(videoOutput) else { return }
             captureSession.sessionPreset = .high
             captureSession.addOutput(videoOutput)
