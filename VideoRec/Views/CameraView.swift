@@ -23,12 +23,28 @@ import AVFoundation
 
 struct ContentView: View {
     @StateObject var vm = CameraViewModel()
+    @State var zoomState = 1.0
+    @State var lastZoomState = 1.0
+    
     var frameDimensions: (width: CGFloat, height: CGFloat) {
         let screenRect = UIScreen.main.bounds
         let tenPrecentFromWidth = (10.0/100.0) * screenRect.width
         let twentyPrecentFromHeight = (10.0/100.0) * screenRect.height
         
         return (screenRect.width - tenPrecentFromWidth, screenRect.height - twentyPrecentFromHeight)
+    }
+    
+    var magnificationGesture: some Gesture {
+        MagnificationGesture()
+            .onChanged { state in
+                let delta = state/lastZoomState
+                zoomState *= delta
+                vm.zoomFor(zoomState)
+                lastZoomState = state
+            }
+            .onEnded { _ in
+                lastZoomState = 1.0
+            }
     }
     
     var body: some View {
@@ -43,6 +59,7 @@ struct ContentView: View {
                     vm.recordButtonAction()
                 }
             }
+            .gesture(magnificationGesture)
         }
         .ignoresSafeArea()
         .task {

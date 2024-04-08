@@ -22,6 +22,8 @@ import Foundation
 
 class CameraViewModel: ObservableObject {
     @Published var isRecoredButtonPressed: Bool = false
+    
+    private var maxZoomValue: CGFloat { captureManger.maxZoomScale }
     private let captureManger = AVCaptureManger.shared
 }
 
@@ -38,12 +40,25 @@ extension CameraViewModel {
         }
     }
     
-    private func startVideoRecording() {
+    func zoomFor(_ value: CGFloat) {
+        if value < 1 {
+            captureManger.zoomTo(1.0)
+        } else if value > maxZoomValue {
+            captureManger.zoomTo(maxZoomValue)
+        } else {
+            captureManger.zoomTo(value)
+        }
+    }
+}
+
+//MARK: -  Private Functions
+private extension CameraViewModel {
+    func startVideoRecording() {
         captureManger.startRecording()
         isRecoredButtonPressed = true
     }
     
-   private func stopVideoRecording() {
+    func stopVideoRecording() {
         captureManger.stopRecording()
         isRecoredButtonPressed = false
     }

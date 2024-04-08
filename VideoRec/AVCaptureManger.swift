@@ -26,6 +26,10 @@ class AVCaptureManger: NSObject {
     static let shared = AVCaptureManger()
     var captureSession = AVCaptureSession()
     
+    var maxZoomScale: CGFloat {
+        videoDevice?.maxAvailableVideoZoomFactor ?? 0.2
+    }
+    
     private let sessionThread = DispatchQueue(label: "SessionQue")
     private let videoOutput = AVCaptureMovieFileOutput()
     private let videoDevice = AVCaptureDevice.default(for: .video)
@@ -63,7 +67,7 @@ extension AVCaptureManger {
         guard let videoDevice else { return }
         try? videoDevice.lockForConfiguration()
         defer { videoDevice.unlockForConfiguration() }
-        videoDevice.ramp(toVideoZoomFactor: value, withRate: 0.3)
+        videoDevice.ramp(toVideoZoomFactor: value, withRate: 4.5)
     }
     
     func stopRecording() {
