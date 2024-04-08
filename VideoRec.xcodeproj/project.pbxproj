@@ -12,6 +12,7 @@
 		264801BA2BB4223C0011D988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264801B92BB4223C0011D988 /* Assets.xcassets */; };
 		264801BD2BB4223C0011D988 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 264801BC2BB4223C0011D988 /* Preview Assets.xcassets */; };
 		264B5BD12BBC25E0009B9E61 /* AVCaptureManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264B5BD02BBC25E0009B9E61 /* AVCaptureManger.swift */; };
+		2664EFA72BC3FA520074A499 /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2664EFA62BC3FA520074A499 /* RecordButtonView.swift */; };
 		26697EA92BBDD0A200693EAB /* CamerPreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26697EA82BBDD0A200693EAB /* CamerPreViewController.swift */; };
 		26B08E3B2BBDD90A007611CB /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B08E3A2BBDD90A007611CB /* CameraViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		264801BC2BB4223C0011D988 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		264B5BD02BBC25E0009B9E61 /* AVCaptureManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureManger.swift; sourceTree = "<group>"; };
 		264B5BD22BBC2CBB009B9E61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2664EFA62BC3FA520074A499 /* RecordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonView.swift; sourceTree = "<group>"; };
 		26697EA82BBDD0A200693EAB /* CamerPreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamerPreViewController.swift; sourceTree = "<group>"; };
 		26B08E3A2BBDD90A007611CB /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,7 +62,7 @@
 			children = (
 				264B5BD22BBC2CBB009B9E61 /* Info.plist */,
 				264801B52BB4223B0011D988 /* DetectScrollingApp.swift */,
-				264801B72BB4223B0011D988 /* CameraView.swift */,
+				2664EFA52BC3FA3E0074A499 /* Views */,
 				26B08E3A2BBDD90A007611CB /* CameraViewModel.swift */,
 				26697EA82BBDD0A200693EAB /* CamerPreViewController.swift */,
 				264B5BD02BBC25E0009B9E61 /* AVCaptureManger.swift */,
@@ -76,6 +78,15 @@
 				264801BC2BB4223C0011D988 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2664EFA52BC3FA3E0074A499 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				264801B72BB4223B0011D988 /* CameraView.swift */,
+				2664EFA62BC3FA520074A499 /* RecordButtonView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +166,7 @@
 				264801B82BB4223B0011D988 /* CameraView.swift in Sources */,
 				26697EA92BBDD0A200693EAB /* CamerPreViewController.swift in Sources */,
 				26B08E3B2BBDD90A007611CB /* CameraViewModel.swift in Sources */,
+				2664EFA72BC3FA520074A499 /* RecordButtonView.swift in Sources */,
 				264801B62BB4223B0011D988 /* DetectScrollingApp.swift in Sources */,
 				264B5BD12BBC25E0009B9E61 /* AVCaptureManger.swift in Sources */,
 			);

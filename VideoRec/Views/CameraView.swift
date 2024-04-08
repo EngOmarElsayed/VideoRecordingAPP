@@ -39,11 +39,8 @@ struct ContentView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20))
                     .frame(width: frameDimensions.width, height: frameDimensions.height)
                 
-                Button {
+                RecordButtonView(isPressed: $vm.isRecoredButtonPressed) {
                     vm.recordButtonAction()
-                } label: {
-                    RecordButtonView(isPressed: $vm.isRecoredButtonPressed)
-                        .padding(.vertical)
                 }
             }
         }
@@ -53,31 +50,6 @@ struct ContentView: View {
         }
     }
 }
-
-struct RecordButtonView: View {
-    @Binding var isPressed: Bool
-    
-    var body: some View {
-        Circle()
-            .stroke(lineWidth: 3)
-            .frame(width: 70)
-            .foregroundStyle(.white)
-            .overlay(alignment: .center) {
-                if isPressed {
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(width: 30, height: 30)
-                        .foregroundStyle(.red)
-                        .animation(.linear, value: isPressed)
-                } else {
-                    Circle()
-                        .frame(width: 55)
-                        .foregroundStyle(.red)
-                        .animation(.linear, value: isPressed)
-                }
-            }
-    }
-}
-
 
 #Preview {
     ContentView()
