@@ -4,13 +4,22 @@
 ## Table of Contents
 1. [Introduction](#introduction)
    - [PreView of the app](#PreView)
-3. [How to use](#section-1)
-   - [Custome Container](#sub-topic-1.1)
-   - [Supported Data](#sub-topic-1.2)
-4. [Storing Custome Data](#section-2)
-   - [Example 1 Enums](#sub-topic-2.1)
-   - [Example 2 Custom Array type](#sub-topic-2.2)
-5. [Author](#conclusion)
+3. [AVCapture](#section-1)
+   - [AVCaptureInput](#sub-topic-1.1)
+   - [AVCaptureSession](#sub-topic-1.2)
+   - [AVCaptureOutput](#sub-topic-1.3)
+4. [Implementation](#section-2)
+   - [AVCapture Manger](#sub-topic-2.1)
+   - [Camera Preview](#sub-topic-2.2)
+   - [CameraViewModel](#sub-topic-2.3)
+   - [CameraView](#sub-topic-2.4)
+5. [Conclusion](#conclusion)
+6. [Bouns](#bouns)
+   - [AVCaptureDevice.ramp](#bouns-2.1)
+   - [CameraViewModel.ZoomInOut](#bouns-2.2)
+   - [ZoomGesture](#bouns-2.3)
+   - [ZoomLabel](#bouns-2.4)
+8. [Author](#author)
 
 ## Introduction <a name="introduction"></a>
 Attention iOS developers, get ready to elevate your app-building skills to cinematic heights 😎! Welcome to a transformative journey where we'll unlock the full potential of the Capture API collection, empowering you to create custome camera app.
@@ -33,5 +42,5 @@ By the end of this blog, you'll wield the Capture API like a seasoned pro, equip
 ## Resourrces 
 [Apple AVCapture Documntation](https://developer.apple.com/documentation/avfoundation/capture_setup/setting_up_a_capture_session)
 
-## Author <a name="conclusion"></a>
+## Author <a name="author"></a>
 This repo was created by [Eng.Omar Elsayed](https://www.linkedin.com/in/engomarelsayed/) to helpe the iOS comuntity and make there life easir. To contact me email me at eng.omar.elsayed@hotmail.com
