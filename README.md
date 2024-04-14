@@ -19,7 +19,8 @@
    - [CameraViewModel.ZoomInOut](#bouns-2.2)
    - [ZoomGesture](#bouns-2.3)
    - [ZoomLabel](#bouns-2.4)
-8. [Author](#author)
+8. [Resourrces](#resourrces)
+9. [Author](#author)
 
 ## Introduction <a name="introduction"></a>
 Attention iOS developers, get ready to elevate your app-building skills to cinematic heights 😎! Welcome to a transformative journey where we'll unlock the full potential of the Capture API collection, empowering you to create custome camera app.
@@ -39,7 +40,7 @@ By the end of this blog, you'll wield the Capture API like a seasoned pro, equip
 
 <img width="200" height="400" alt="Screenshot 2024-03-15 at 3 28 47 AM" src="https://github.com/EngOmarElsayed/VideoRecordingAPP/assets/125718818/67850ae8-c5ba-4c38-89ea-6ee9a370ac0f">
 
-## Resourrces 
+## Resourrces <a name="resourrces"></a>
 [Apple AVCapture Documntation](https://developer.apple.com/documentation/avfoundation/capture_setup/setting_up_a_capture_session)
 
 ## Author <a name="author"></a>
