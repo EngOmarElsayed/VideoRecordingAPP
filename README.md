@@ -35,6 +35,21 @@ But wait, there's more! Master the art of zooming – in and out – to perfect 
 
 By the end of this blog, you'll wield the Capture API like a seasoned pro, equipped to build custom camera apps that not only impress but leave a lasting impression. Stay tuned for the next section, where we'll unveil the secrets of using Capture API collection in your app!
 
+## AVCapture <a name="section-1"></a>
+The AVFoundation Capture subsystem offers a unified framework for handling video, photo, and audio capture functions across iOS and macOS. Utilize this system to:
+- Craft a personalized camera interface, seamlessly integrating photo and video shooting within your app's interface.
+- Empower users with greater control over capture settings like focus, exposure, and stabilization.
+- Generate unique outcomes, such as RAW format images, depth maps, or videos featuring custom timed metadata, differing from the default camera interface.
+- Access live pixel or audio data directly from the capture device.
+
+Key components of this architecture include sessions, inputs, and outputs. Sessions establish connections between inputs (like built-in cameras and microphones) and outputs, which process media from inputs into useful data, such as movie files or raw pixel buffers.
+</br>
+</br>
+<p align="center">
+<img width="600" height="100" alt="AVFoundation Capture" src="https://github.com/EngOmarElsayed/VideoRecordingAPP/assets/125718818/41045c1e-fce8-420f-aaf2-eaadecf0fb66">
+</p>
+</br>
+
 ### PreView of the app <a name="PreView"></a>
 <img width="200" height="400" alt="Screenshot 2024-03-15 at 3 28 47 AM" src="https://github.com/EngOmarElsayed/VideoRecordingAPP/assets/125718818/33bb46f1-85bc-4d94-b1dd-1963b6c93849">
 
