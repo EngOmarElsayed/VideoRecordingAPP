@@ -50,6 +50,12 @@ Key components of this architecture include sessions, inputs, and outputs. Sessi
 </p>
 </br>
 
+### AVCaptureInput <a name="sub-topic-1.1"></a>
+
+### AVCaptureSession <a name="sub-topic-1.2"></a>
+
+### AVCaptureSession <a name="sub-topic-1.3"></a>
+
 ### PreView of the app <a name="PreView"></a>
 <img width="200" height="400" alt="Screenshot 2024-03-15 at 3 28 47 AM" src="https://github.com/EngOmarElsayed/VideoRecordingAPP/assets/125718818/33bb46f1-85bc-4d94-b1dd-1963b6c93849">
 
