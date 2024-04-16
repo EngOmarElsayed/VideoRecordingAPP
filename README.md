@@ -35,6 +35,11 @@ But wait, there's more! Master the art of zooming – in and out – to perfect 
 
 By the end of this blog, you'll wield the Capture API like a seasoned pro, equipped to build custom camera apps that not only impress but leave a lasting impression. Stay tuned for the next section, where we'll unveil the secrets of using Capture API collection in your app!
 
+### PreView of the app <a name="PreView"></a>
+<img width="200" height="400" alt="Screenshot 2024-03-15 at 3 28 47 AM" src="https://github.com/EngOmarElsayed/VideoRecordingAPP/assets/125718818/33bb46f1-85bc-4d94-b1dd-1963b6c93849">
+
+<img width="200" height="400" alt="Screenshot 2024-03-15 at 3 28 47 AM" src="https://github.com/EngOmarElsayed/VideoRecordingAPP/assets/125718818/67850ae8-c5ba-4c38-89ea-6ee9a370ac0f">
+
 ## AVCapture <a name="section-1"></a>
 The AVFoundation Capture subsystem offers a unified framework for handling video, photo, and audio capture functions across iOS and macOS. Utilize this system to:
 - Craft a personalized camera interface, seamlessly integrating photo and video shooting within your app's interface.
@@ -42,7 +47,7 @@ The AVFoundation Capture subsystem offers a unified framework for handling video
 - Generate unique outcomes, such as RAW format images, depth maps, or videos featuring custom timed metadata, differing from the default camera interface.
 - Access live pixel or audio data directly from the capture device.
 
-Key components of this architecture include sessions, inputs, and outputs. Sessions establish connections between inputs (like built-in cameras and microphones) and outputs, which process media from inputs into useful data, such as movie files or raw pixel buffers.
+Key components of this architecture include sessions, inputs, and outputs. Sessions establish connections between inputs (like built-in cameras and microphones) and outputs, which process media from inputs into useful data, such as movie files or raw pixel buffers. Let's talk about the first componet AVCaptureInput.
 </br>
 </br>
 <p align="center">
@@ -51,15 +56,45 @@ Key components of this architecture include sessions, inputs, and outputs. Sessi
 </br>
 
 ### AVCaptureInput <a name="sub-topic-1.1"></a>
+When building a capture session, you craft specific instances of classes like AVCaptureDeviceInput to incorporate various inputs. These inputs can encompass streams of media data, such as audio and video. Each media stream is represented within the framework as an AVCaptureInput.Port object. Connections within the capture session, linking inputs and outputs, are established through AVCaptureConnection objects, mapping sets of port objects to AVCaptureOutputs. Now let's Dive in to AVCaptureSession the middle piace between the AVCaptureDeviceInput and AVCaptureOutputs.
 
 ### AVCaptureSession <a name="sub-topic-1.2"></a>
 
-### AVCaptureSession <a name="sub-topic-1.3"></a>
+To enable real-time capture, you create a capture session and configure it with the necessary inputs and outputs. Below is a code snippet demonstrating how to set up a capture device for audio recording.
 
-### PreView of the app <a name="PreView"></a>
-<img width="200" height="400" alt="Screenshot 2024-03-15 at 3 28 47 AM" src="https://github.com/EngOmarElsayed/VideoRecordingAPP/assets/125718818/33bb46f1-85bc-4d94-b1dd-1963b6c93849">
+```swift
+// Create the capture session.
+let captureSession = AVCaptureSession()
 
-<img width="200" height="400" alt="Screenshot 2024-03-15 at 3 28 47 AM" src="https://github.com/EngOmarElsayed/VideoRecordingAPP/assets/125718818/67850ae8-c5ba-4c38-89ea-6ee9a370ac0f">
+
+// Find the default audio device.
+guard let audioDevice = AVCaptureDevice.default(for: .audio) else { return }
+
+
+do {
+    // Wrap the audio device in a capture device input.
+    let audioInput = try AVCaptureDeviceInput(device: audioDevice)
+    // If the input can be added, add it to the session.
+    if captureSession.canAddInput(audioInput) {
+        captureSession.addInput(audioInput)
+    }
+} catch {
+    // Configuration failed. Handle error.
+}
+```
+Initiate the flow of data by calling the startRunning() method, and halt it by calling stopRunning().
+> [!IMPORTANT]  
+> startRunning() may take some time to execute, so it's recommended to begin the session on a serial dispatch queue to prevent blocking the main queue and maintain UI responsiveness. Refer to AVCam: Building a Camera App for an example of implementation.
+
+The sessionPreset property allows you to tailor the output's quality, bitrate, or other parameters. While most common configurations are accessible through session presets, certain specialized options, like high frame rate, necessitate direct configuration on an AVCaptureDevice instance. Now let's dive in the AVCaptureOutput the last pieace we need to understand.
+
+### AVCaptureOutput <a name="sub-topic-1.3"></a>
+
+This class serves as a versatile link between capture output destinations, like files and streams, and a capture session. Each capture output can establish several connections, corresponding to each stream of media received from a capture input. 
+
+Initially, a capture output doesn't have any connections upon creation. However, upon addition to a capture session, compatible inputs and outputs are automatically linked, forming connections seamlessly.
+
+Now we have all the knowledge we need let's start building owr own video recording app 🚀.
 
 ## Resourrces <a name="resourrces"></a>
 [Apple AVCapture Documntation](https://developer.apple.com/documentation/avfoundation/capture_setup/setting_up_a_capture_session)
